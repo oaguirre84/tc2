@@ -13,6 +13,7 @@ public class Tp2TestEjer6_2 {
 				System.out.print(crearMatriz()[i][j] +"|");
 			}
 			System.out.println();
+			System.out.println("hola");
 		}
 	}
 	
