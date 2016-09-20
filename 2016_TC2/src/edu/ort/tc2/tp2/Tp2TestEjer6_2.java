@@ -4,17 +4,11 @@ public class Tp2TestEjer6_2 {
 
 	public static void main(String[] args) {
 		
-		crearMatriz();
-		
-		for (int i = 0; i < crearMatriz().length; i++) 
+		for (int i = 0; i < sumarUltimaFila(crearMatriz())[5].length; i++) 
 		{
-			for (int j = 0; j < crearMatriz()[i].length; j++) 
-			{
-				System.out.print(crearMatriz()[i][j] +"|");
-			}
-			System.out.println();
-			System.out.println("hola");
+			System.out.print(sumarUltimaFila(crearMatriz())[5][i] +"|");
 		}
+		
 	}
 	
 	public static int[][] crearMatriz()
@@ -26,18 +20,39 @@ public class Tp2TestEjer6_2 {
 		
 		for (int i = 0; i < matriz.length-1; i++) 
 		{
-			int suma = 0;
 			for (int j = 0; j < matriz[i].length; j++) 
 			{
 				matriz[i][j] = num;
 				num++;
-				
-				suma += matriz[i][j];
-				matriz[ultimaFila][j] = suma;
 			}
-			
 		}
-				
 		return matriz;
+	}
+	
+	
+	public static int[][] sumarUltimaFila(int[][] vec)
+	{
+		int [][] res= new int[6][5];
+		int ultimaFila = vec.length-1;
+		
+		for (int i = 0; i < vec.length; i++) //COPIA VEC A RES
+		{
+			for (int j = 0; j < vec[j].length; j++) 
+			{
+				res[i][j] = vec[i][j];
+			}
+		}
+		
+		for (int j = 0; j < vec[j].length; j++) //SUMA, INSERTA EN ULTIMA FILA DE RES 
+		{
+			int suma = 0;
+			for (int i = 0; i < vec.length; i++) 
+			{
+				suma += vec[i][j];
+			}
+			res[ultimaFila][j]=suma;
+		}
+		
+		return res;
 	}
 }
